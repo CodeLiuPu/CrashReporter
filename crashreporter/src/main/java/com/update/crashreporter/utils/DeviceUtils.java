@@ -36,23 +36,70 @@ public class DeviceUtils {
     }
 
     /**
-     * 获取系统版本字符串。如4.1.2
+     * 获取系统版本字符串
+     * 例如 : Android_4.1.2
      */
     public static String getSystemVersion() {
         return "Android_" + Build.VERSION.RELEASE;
     }
 
     /**
-     * 获取设备的IMEI号
+     * 获取设备 deviceId
      */
-    @SuppressLint("MissingPermission")
-    public static String getIMEI(Context context) {
-        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.READ_PHONE_STATE)
+    @SuppressLint({"MissingPermission", "HardwareIds"})
+    public static String getDeviceId() {
+        String deviceId = "00000000000000";
+
+        if (ActivityCompat.checkSelfPermission(GlobalContext.getApp(), Manifest.permission.READ_PHONE_STATE)
                 != PackageManager.PERMISSION_GRANTED) {
-            return "00000000000000";
+            return deviceId;
         }
-        TelephonyManager telephonyMgr = (TelephonyManager) GlobalContext.getApp().getSystemService(Context.TELEPHONY_SERVICE);
-        return telephonyMgr.getDeviceId();
+
+        TelephonyManager tm = (TelephonyManager) GlobalContext.getApp().getSystemService(Context.TELEPHONY_SERVICE);
+        deviceId = tm.getDeviceId();
+        return deviceId;
+    }
+
+    /**
+     * 获取设备 MEID号
+     */
+    @SuppressLint({"MissingPermission", "HardwareIds"})
+    public static String getMEID() {
+        String MEID = "00000000000000";
+
+        if (ActivityCompat.checkSelfPermission(GlobalContext.getApp(), Manifest.permission.READ_PHONE_STATE)
+                != PackageManager.PERMISSION_GRANTED) {
+            return MEID;
+        }
+
+        TelephonyManager tm = (TelephonyManager) GlobalContext.getApp().getSystemService(Context.TELEPHONY_SERVICE);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            MEID = tm.getMeid();
+        } else {
+            MEID = tm.getDeviceId();
+        }
+        return MEID;
+    }
+
+    /**
+     * 获取设备 IMEI号
+     */
+    @SuppressLint({"MissingPermission", "HardwareIds"})
+    public static String getIMEI() {
+        String IMEI = "00000000000000";
+
+        if (ActivityCompat.checkSelfPermission(GlobalContext.getApp(), Manifest.permission.READ_PHONE_STATE)
+                != PackageManager.PERMISSION_GRANTED) {
+            return IMEI;
+        }
+
+        TelephonyManager tm = (TelephonyManager) GlobalContext.getApp().getSystemService(Context.TELEPHONY_SERVICE);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            IMEI = tm.getImei();
+        } else {
+            IMEI = tm.getDeviceId();
+        }
+        return IMEI;
     }
 
     /**
