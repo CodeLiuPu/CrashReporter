@@ -1,5 +1,9 @@
 package com.update.crashreporter;
 
+import android.app.Application;
+
+import com.update.crashreporter.utils.GlobalContext;
+
 /**
  * @author : liupu
  * date   : 2019/8/24
@@ -7,7 +11,9 @@ package com.update.crashreporter;
  * Github : https://github.com/CodeLiuPu/
  */
 public class CrashReporter {
-    public static void init() {
+    private static final CrashHandler mCrashHelper = new CrashHandler();
 
+    public static void init(Application application) {
+        GlobalContext.init(application);
     }
 }
