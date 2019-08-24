@@ -11,6 +11,9 @@ import android.content.pm.PackageManager;
  */
 public class AppUtils {
 
+    private AppUtils() {
+    }
+
     /**
      * 获取当前应用程序名称
      */

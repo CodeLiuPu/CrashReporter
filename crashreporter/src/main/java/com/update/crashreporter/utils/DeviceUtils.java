@@ -24,6 +24,9 @@ import java.text.SimpleDateFormat;
  */
 public class DeviceUtils {
 
+    private DeviceUtils() {
+    }
+
     /**
      * 获取当前日期
      * 日期格式 - "yyyy-MM-dd HH:mm:ss"

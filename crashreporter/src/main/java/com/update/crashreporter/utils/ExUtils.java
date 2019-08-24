@@ -14,6 +14,10 @@ import java.text.SimpleDateFormat;
  * Github : https://github.com/CodeLiuPu/
  */
 public class ExUtils {
+
+    private ExUtils() {
+    }
+
     public static String getExceptionMessage(Thread thread, Throwable ex) {
 
         if (ex == null) {

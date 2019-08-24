@@ -7,6 +7,10 @@ package com.update.crashreporter.utils;
  * Github : https://github.com/CodeLiuPu/
  */
 public class FileUtlis {
+
+    private FileUtlis() {
+    }
+
     public static void saveEx2File(){
         new Throwable().getStackTrace();
     }

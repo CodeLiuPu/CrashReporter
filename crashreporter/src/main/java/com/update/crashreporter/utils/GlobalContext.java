@@ -10,7 +10,11 @@ import android.support.annotation.NonNull;
  * Github : https://github.com/CodeLiuPu/
  */
 public class GlobalContext {
+
     private static Application sApplication;
+
+    private GlobalContext() {
+    }
 
     public static void init(@NonNull final Application app) {
         if (sApplication == null) {
