@@ -1,4 +1,4 @@
-package com.update.buger;
+package com.update.crashreporter;
 
 import org.junit.Test;
 

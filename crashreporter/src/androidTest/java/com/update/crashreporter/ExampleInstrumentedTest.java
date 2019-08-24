@@ -1,4 +1,4 @@
-package com.update.buger;
+package com.update.crashreporter;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
