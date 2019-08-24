@@ -3,12 +3,10 @@ package com.update.crashreporter.utils;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.pm.PackageManager;
 import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.Environment;
 import android.os.StatFs;
-import android.support.v4.app.ActivityCompat;
 import android.telephony.TelephonyManager;
 import android.text.format.Formatter;
 
@@ -53,8 +51,7 @@ public class DeviceUtils {
     public static String getDeviceId() {
         String deviceId = "00000000000000";
 
-        if (ActivityCompat.checkSelfPermission(GlobalContext.getApp(), Manifest.permission.READ_PHONE_STATE)
-                != PackageManager.PERMISSION_GRANTED) {
+        if (PermissionUtils.noPermission(Manifest.permission.READ_PHONE_STATE)) {
             return deviceId;
         }
 
@@ -70,8 +67,7 @@ public class DeviceUtils {
     public static String getMEID() {
         String MEID = "00000000000000";
 
-        if (ActivityCompat.checkSelfPermission(GlobalContext.getApp(), Manifest.permission.READ_PHONE_STATE)
-                != PackageManager.PERMISSION_GRANTED) {
+        if (PermissionUtils.noPermission(Manifest.permission.READ_PHONE_STATE)) {
             return MEID;
         }
 
@@ -91,8 +87,7 @@ public class DeviceUtils {
     public static String getIMEI() {
         String IMEI = "00000000000000";
 
-        if (ActivityCompat.checkSelfPermission(GlobalContext.getApp(), Manifest.permission.READ_PHONE_STATE)
-                != PackageManager.PERMISSION_GRANTED) {
+        if (PermissionUtils.noPermission(Manifest.permission.READ_PHONE_STATE)) {
             return IMEI;
         }
 
