@@ -1,7 +1,5 @@
 package com.update.crashreporter;
 
-import android.app.Application;
-
 import com.update.crashreporter.utils.GlobalContext;
 
 /**
@@ -11,9 +9,13 @@ import com.update.crashreporter.utils.GlobalContext;
  * Github : https://github.com/CodeLiuPu/
  */
 public class CrashReporter {
+
     private static final CrashHandler mCrashHelper = new CrashHandler();
 
-    public static void init(Application application) {
-        GlobalContext.init(application);
+    private CrashReporter() {
+    }
+
+    public static void init(CrashConfig crashConfig) {
+        GlobalContext.init(crashConfig.getApp());
     }
 }
