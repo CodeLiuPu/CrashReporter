@@ -5,5 +5,8 @@ package com.update.buger;
  * date   : 2019/8/24
  * desc   :
  */
-public class Buger {
+public class BugerReporter {
+    public static void init(){
+
+    }
 }
