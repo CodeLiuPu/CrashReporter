@@ -29,6 +29,7 @@ public class DeviceUtils {
      * 获取当前日期
      * 日期格式 - "yyyy-MM-dd HH:mm:ss"
      */
+    @SuppressLint("SimpleDateFormat")
     public static String getCurrentTime() {
         long currentTime = System.currentTimeMillis();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -42,6 +43,34 @@ public class DeviceUtils {
      */
     public static String getSystemVersion() {
         return "Android_" + Build.VERSION.RELEASE;
+    }
+
+    /**
+     * 获取 SDK版本
+     */
+    public static String getSDKVersion() {
+        return String.valueOf(Build.VERSION.SDK_INT);
+    }
+
+    /**
+     * 获取 手机品牌
+     */
+    public static String getPhoneBrand() {
+        return Build.MANUFACTURER;
+    }
+
+    /**
+     * 获取 手机机型
+     */
+    public static String getPhoneType() {
+        return Build.MODEL;
+    }
+
+    /**
+     * 获取 CPU类型
+     */
+    public static String getCPUType() {
+        return Build.CPU_ABI;
     }
 
     /**
