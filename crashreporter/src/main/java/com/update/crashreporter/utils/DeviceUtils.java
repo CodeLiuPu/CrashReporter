@@ -32,7 +32,7 @@ public class DeviceUtils {
     @SuppressLint("SimpleDateFormat")
     public static String getCurrentTime() {
         long currentTime = System.currentTimeMillis();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
         String time = sdf.format(new Date(currentTime));
         return time;
     }
