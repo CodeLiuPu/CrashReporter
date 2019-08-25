@@ -115,6 +115,7 @@ public class DeviceUtils {
      * 获取 mac 地址
      * 通过 WifiManager 获取
      */
+    @SuppressLint("HardwareIds")
     private static String getMac() {
 
         WifiManager wifiManager = (WifiManager) GlobalContext.getApp()
@@ -123,7 +124,6 @@ public class DeviceUtils {
         if (wifiManager == null) {
             return "";
         }
-        String mac = wifiManager.getConnectionInfo().getMacAddress(); // mac地址
-        return mac;
+        return wifiManager.getConnectionInfo().getMacAddress();
     }
 }
