@@ -3,6 +3,8 @@ package com.update.crashreporter.utils;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 
+import com.update.crashreporter.GlobalContext;
+
 /**
  * @author : liupu
  * date   : 2019/8/24

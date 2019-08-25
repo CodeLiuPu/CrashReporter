@@ -1,7 +1,5 @@
 package com.update.crashreporter;
 
-import com.update.crashreporter.utils.GlobalContext;
-
 /**
  * @author : liupu
  * date   : 2019/8/24

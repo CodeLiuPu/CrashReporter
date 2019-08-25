@@ -3,8 +3,9 @@ package com.update.crashreporter.utils;
 import android.Manifest;
 import android.os.Build;
 
+import com.update.crashreporter.GlobalContext;
+
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 

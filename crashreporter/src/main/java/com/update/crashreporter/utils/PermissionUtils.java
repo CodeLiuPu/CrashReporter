@@ -4,6 +4,8 @@ import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 
+import com.update.crashreporter.GlobalContext;
+
 /**
  * @author : liupu
  * date    : 2019/8/24

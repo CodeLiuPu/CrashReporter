@@ -1,4 +1,4 @@
-package com.update.crashreporter.utils;
+package com.update.crashreporter;
 
 import android.app.Application;
 import android.support.annotation.NonNull;

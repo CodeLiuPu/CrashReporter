@@ -10,6 +10,8 @@ import android.os.StatFs;
 import android.telephony.TelephonyManager;
 import android.text.format.Formatter;
 
+import com.update.crashreporter.GlobalContext;
+
 import java.io.File;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
