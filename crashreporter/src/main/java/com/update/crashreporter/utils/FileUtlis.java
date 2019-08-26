@@ -17,30 +17,40 @@ import java.io.IOException;
  */
 public class FileUtlis {
 
-    private static String fileName = AppUtils.getAppName() + "_" + DeviceUtils.getCurrentTime() + ".log";
-    private static String filePath = GlobalContext.getApp().getFilesDir() + File.separator + "Crash" + File.separator + fileName;
-
 
     private FileUtlis() {
     }
 
     /**
      * 向文件中写入String数据
+     * 使用默认的文件path 和 name
      */
     public static void saveString2File(String content) {
+        String name = AppUtils.getAppName() + "_" + DeviceUtils.getCurrentTime() + ".log";
+        String path = GlobalContext.getApp().getFilesDir() + File.separator + "Crash";
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (PermissionUtils.checkPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
-                filePath = GlobalContext.getApp().getExternalFilesDir("Crash").getAbsolutePath() + File.separator + fileName;
+                path = GlobalContext.getApp().getExternalFilesDir("Crash").getAbsolutePath();
             }
         }
+        saveString2File(path, name, content);
+    }
 
+    /**
+     * 向文件中写入String数据
+     * 指定文件 path
+     * 指定文件 name
+     */
+    public static void saveString2File(String path, String name, String content) {
         // 创建文件
+        String filePath = path + File.separator + name;
         File file = new File(filePath);
         if (!file.exists()) {
             File dir = new File(file.getParent());
-            boolean mkdirs = dir.mkdirs();
+            dir.mkdirs();
             try {
-                boolean newFile = file.createNewFile();
+                file.createNewFile();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -54,6 +64,6 @@ public class FileUtlis {
                 e.printStackTrace();
             }
         }
-
     }
+
 }

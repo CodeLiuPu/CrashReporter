@@ -1,5 +1,8 @@
 package com.update.crashreporter;
 
+import com.update.crashreporter.utils.log.LogConfig;
+import com.update.crashreporter.utils.log.LogUtil;
+
 /**
  * @author : liupu
  * date   : 2019/8/24
@@ -8,12 +11,13 @@ package com.update.crashreporter;
  */
 public class CrashReporter {
 
-    private static final CrashHandler mCrashHelper = new CrashHandler();
-
     private CrashReporter() {
     }
 
     public static void init(CrashConfig crashConfig) {
         GlobalContext.init(crashConfig.getApp());
+        LogUtil.setConfig(new LogConfig("Update Hello", crashConfig.isDebug()));
+        new CrashHandler().init();
     }
+
 }

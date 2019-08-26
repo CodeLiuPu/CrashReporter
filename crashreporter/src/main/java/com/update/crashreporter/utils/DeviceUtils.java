@@ -55,7 +55,7 @@ public class DeviceUtils {
     }
 
     /**
-     * 获取 手机品牌
+     * 获取 手机品牌 硬件版本
      */
     public static String getPhoneBrand() {
         return Build.MANUFACTURER;
