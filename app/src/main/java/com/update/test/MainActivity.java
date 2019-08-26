@@ -9,5 +9,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        test();
+    }
+
+    /**
+     * 测试 crash 逻辑
+     */
+    public void test() {
+        Object o = null;
+        o.toString();
     }
 }
