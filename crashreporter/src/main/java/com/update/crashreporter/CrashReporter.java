@@ -20,4 +20,11 @@ public class CrashReporter {
         new CrashHandler().init();
     }
 
+    public static void handleCatchedException(Throwable ex) {
+        CrashHandler.handleThreadException(ex);
+    }
+
+    public static void handleCatchedException(Thread thread, Throwable ex) {
+        CrashHandler.handleThreadException(thread, ex);
+    }
 }

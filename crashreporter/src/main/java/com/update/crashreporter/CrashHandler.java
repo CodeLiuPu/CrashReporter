@@ -29,7 +29,14 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
     /**
      * 处理线程异常
      */
-    private void handleThreadException(Thread thread, Throwable ex) {
+    public static void handleThreadException(Throwable ex) {
+        handleThreadException(Thread.currentThread(), ex);
+    }
+
+    /**
+     * 处理线程异常
+     */
+    public static void handleThreadException(Thread thread, Throwable ex) {
         String exMsg = ExUtils.getExceptionMessage(thread, ex);
         LogUtil.e(exMsg);
         FileUtlis.saveString2File(exMsg);
