@@ -1,7 +1,6 @@
 package com.update.crashreporter.utils;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
+import android.util.Log;
 
 /**
  * @author : liupu
@@ -31,13 +30,7 @@ public class ExUtils {
         sb.append("CPU类型: ").append(DeviceUtils.getCPUType()).append("\n");
         sb.append("Thread: ").append(thread.getName()).append("\n");
         sb.append("Error类型: ").append(ex.getClass().getSimpleName()).append("\n");
-
-        try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
-            ex.printStackTrace(new PrintStream(baos));
-            sb.append("Error详情: ").append(baos.toString()).append("\n");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        sb.append("Error详情: ").append(Log.getStackTraceString(ex)).append("\n");
         sb.append("------------------").append("AppCrash End").append("------------------").append("\n");
         return sb.toString();
     }
