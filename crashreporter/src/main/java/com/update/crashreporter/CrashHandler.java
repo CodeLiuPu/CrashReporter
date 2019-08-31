@@ -20,9 +20,17 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
 
     @Override
     public void uncaughtException(Thread t, Throwable ex) {
-        handleThreadException(t, ex);
-        if (defaultUncaughtExceptionHandler != null) {
-            defaultUncaughtExceptionHandler.uncaughtException(t, ex);
+        if (ex == null) {
+            if (defaultUncaughtExceptionHandler != null) {
+                defaultUncaughtExceptionHandler.uncaughtException(t, ex);
+            } else {
+                exit();
+            }
+        } else {
+            handleThreadException(t, ex);
+            if (defaultUncaughtExceptionHandler != null) {
+                defaultUncaughtExceptionHandler.uncaughtException(t, ex);
+            }
         }
     }
 
@@ -40,6 +48,11 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
         String exMsg = ExUtils.getExceptionMessage(thread, ex);
         LogUtil.e(exMsg);
         FileUtlis.saveString2File(exMsg);
+    }
+
+    private void exit() {
+        android.os.Process.killProcess(android.os.Process.myPid());
+        System.exit(1);
     }
 
 }
